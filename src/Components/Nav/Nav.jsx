@@ -1,7 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import swal from "sweetalert";
 
 const Nav = () => {
-const nav=<div className="flex gap-6">
+
+  const {user,logOut}=useContext(AuthContext)
+
+  const handleLogOut=()=>{
+    logOut()
+    .then(()=>{
+     swal('logout success')
+
+     .catch(err=>{
+      console.log(err.message)
+     })
+    })
+   
+  };
+
+
+     const nav=(<div className="flex gap-6">
            <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-600 underline" : ""}>Home</NavLink>
 
            <NavLink to="/addProduct" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-600 underline" : ""}>Add Product</NavLink>
@@ -11,7 +30,7 @@ const nav=<div className="flex gap-6">
            <NavLink to="/login" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-600 underline" : ""}>Login</NavLink>
 
            
-       </div>
+       </div>)
 
 
 
@@ -38,7 +57,20 @@ const nav=<div className="flex gap-6">
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+  {
+      user?<div className="flex gap-1">
+            {user?.photoURL&&  <img className="w-12 rounded-full"  src={user?.photoURL}  alt="" /> }
+      
+       <div  className="flex gap-2 items-center">
+       <p className="bg-gradient-to-r from-cyan-500 to-green-500  ">{user?.displayName||user?.email}</p>
+    
+        <button onClick={handleLogOut} className="btn bg-gradient-to-r from-cyan-500 to-green-500 ">LogOut</button>
+       </div>
+
+      </div>
+      :
+      <Link to='/login' className="btn bg-gradient-to-r from-green-500 to-cyan-500 ">LogIn</Link>
+    }
   </div>
 </div>
         </div>

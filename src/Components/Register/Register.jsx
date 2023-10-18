@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import swal from "sweetalert";
 
 const Register = () => {
-    const [showPassword,setShowPassword]=useState(true)
+    const [showPassword,setShowPassword]=useState(false)
     const {createUser}=useContext(AuthContext)
 
     const handleRegister=e=>{
@@ -14,18 +15,21 @@ const Register = () => {
         const form=e.target;
         const email=form.email.value;
         const password=form.password.value;
-   if(/^[a-z]{1,5}$/.test(password)){
-    toast("Wow so easy!");
-   }
-
-        console.log(email,password)
+   if(/^(?=.*[A-Z])(?=.*[\W_]).{6,}$/.test(password)){
+    // console.log(email,password)
         createUser(email,password)
-        .then(result=>{
-            console.log(result.user)
+        .then(()=>{
+          swal("", "Your registration Successfully compleate!", "success");
         })
         .catch(err=>{
-            console.log(err.message)
+          swal("Error!", `${err.message}`, "error");
         })
+   }
+   else{
+    toast('Password will be minimum 6 charecter ,munimum have 1 capital later with a special charecter')
+    }
+
+       
     }
 
    

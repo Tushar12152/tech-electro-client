@@ -1,17 +1,37 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillEyeInvisible,AiFillEye } from 'react-icons/ai';
-import { Link } from "react-router-dom";
+import { Link, useNavigate, } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+
+import swal from "sweetalert";
 
 const Login = () => {
 
     const [showPassword,setShowPassword]=useState(true)
+    const {signUp}=useContext(AuthContext)
+    const Navigate=useNavigate()
    
     const handleLogIn=e=>{
         e.preventDefault()
         const form=e.target;
         const email=form.email.value;
         const password=form.password.value;
-        console.log(email,password)
+       
+       
+          console.log(email,password)
+          signUp(email,password)
+          .then(()=>{
+            swal("WOW!", "You are Successfully login! ", "success");
+            Navigate(location?.state? location.state:'/')
+          })
+          .catch(error=>{
+            swal("Error!", `${error.message}`, "error");
+          })
+      
+ 
+    
+    
+
     }
 
 
