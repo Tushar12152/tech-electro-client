@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 const Nav = () => {
-const nav=<div>
+const nav=<div className="flex gap-6">
            <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-600 underline" : ""}>Home</NavLink>
 
            <NavLink to="/addProduct" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-600 underline" : ""}>Add Product</NavLink>
@@ -12,6 +12,8 @@ const nav=<div>
 
            
        </div>
+
+
 
     return (
         <div>
@@ -25,7 +27,10 @@ const nav=<div>
            {nav}
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+
+    <div>
+         <img className="w-[120px] rounded-full" src={"https://i.ibb.co/44f2rKh/360-F-102975288-L4aqjlx-Xo-Zrkg0-CVv-BXmn-S78ob-UY9-NFL.jpg"}  />
+    </div>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
