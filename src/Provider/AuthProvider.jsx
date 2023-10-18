@@ -12,19 +12,25 @@ const AuthProvider = ({children}) => {
     const googleProvider=new GoogleAuthProvider()
 
     const createUser=(email,password)=>{
-
+        setLoading(true)
         return  createUserWithEmailAndPassword(auth,email,password)
     }
 
     const signUp=(email,password)=>{
+        setLoading(true)
+
       return  signInWithEmailAndPassword(auth,email,password)
     }
 
     const googleSignUp=()=>{
+        setLoading(true)
+
         return signInWithPopup(auth,googleProvider)
     }
 
     const logOut=()=>{
+        setLoading(true)
+
         return signOut(auth)
     }
 

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AiFillEyeInvisible,AiFillEye } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -8,9 +9,21 @@ import swal from "sweetalert";
 const Login = () => {
 
     const [showPassword,setShowPassword]=useState(true)
-    const {signUp}=useContext(AuthContext)
+    const {signUp,googleSignUp}=useContext(AuthContext)
     const Navigate=useNavigate()
    
+const handleGoogleSignUp=()=>{
+  googleSignUp()
+  .then(()=>{
+    swal("WOW!", "You are Successfully login! ", "success");
+    Navigate(location?.state? location.state:'/')
+  })
+  .catch(error=>{
+    swal("Error!", `${error.message}`, "error");
+  })
+}
+
+
     const handleLogIn=e=>{
         e.preventDefault()
         const form=e.target;
@@ -27,10 +40,7 @@ const Login = () => {
           .catch(error=>{
             swal("Error!", `${error.message}`, "error");
           })
-      
- 
-    
-    
+   
 
     }
 
@@ -73,7 +83,10 @@ const Login = () => {
           <button className="btn bg-gradient-to-r from-cyan-500 to-green-500 ">Login</button>
         </div>
         <p>New Here? please <Link className="text-cyan-500" to='/register'>register</Link></p>
+           <p className="text-xl font-semibold text-center border-b-2 p-5 ">SIGN UP WITH</p>
+          <span onClick={handleGoogleSignUp} className="text-2xl ml-24 mt-2 "> <FcGoogle></FcGoogle></span>
       </form>
+      
     </div>
   </div>
 </div>
