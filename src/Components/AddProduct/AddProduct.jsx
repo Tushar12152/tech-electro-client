@@ -1,3 +1,4 @@
+import swal from "sweetalert";
 
 const AddProduct = () => {
 
@@ -17,6 +18,21 @@ const AddProduct = () => {
         }
 
         console.log(product)
+
+        fetch('http://localhost:5001/products',{
+            method:"POST",
+            headers:{
+                "content-Type":"application/json"
+            },
+            body:JSON.stringify(product)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+                swal('success',"Your product is added",'success')
+            }
+        })
     }
 
 
