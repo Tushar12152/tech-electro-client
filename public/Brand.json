@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "photo": "https://i.ibb.co/rQcgDxN/Apple-Logo.png",
+      "brand": "Apple"
+    },
+    {
+      "id": 2,
+      "photo": "https://i.ibb.co/59zvQFY/Samsung-Logo-svg.png",
+      "brand": "Samsung"
+    },
+    {
+      "id": 3,
+      "photo": "https://i.ibb.co/f041dXj/Sony-logo-svg.png",
+      "brand": "Sony"
+    },
+    {
+      "id": 4,
+      "photo": "https://i.ibb.co/wzM96ns/Intel-logo-2022.png",
+      "brand": "Intel"
+    },
+    {
+      "id": 5,
+      "photo": "https://i.ibb.co/27dtw2P/download.png",
+      "brand": "Google"
+    },
+    {
+      "id": 6,
+      "photo": "https://i.ibb.co/Kws0FJm/walton-group-logo-brandlogos-net-hnngy-512x512.png",
+      "brand": "Walton"
+    }
+  ]
+  
