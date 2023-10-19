@@ -24,7 +24,7 @@ const MyCartsDetails = ({cart,myCarts,setMyCarts}) => {
               swal("Poof! Your imaginary file has been deleted!", {
                 icon: "success",});
 
-                 fetch(`http://localhost:5001/carts/${id}`,{
+                 fetch(`https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/carts/${id}`,{
                     method:"DELETE",
                    })
                    .then(res=>res.json())

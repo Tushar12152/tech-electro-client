@@ -19,7 +19,7 @@ const AddProduct = () => {
 
         console.log(product)
 
-        fetch('http://localhost:5001/products',{
+        fetch('https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/products',{
             method:"POST",
             headers:{
                 "content-Type":"application/json"

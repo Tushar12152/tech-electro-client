@@ -24,7 +24,7 @@ const handleUpdate=e=>{
 
     console.log(product)
 
-    fetch(`http://localhost:5001/products/${_id}`,{
+    fetch(`https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/products/${_id}`,{
         method:"PUT",
         headers:{
             "content-Type":"application/json"

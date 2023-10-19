@@ -35,7 +35,7 @@ const Router = createBrowserRouter([
             element:<PrivateRoute>
                       <MyCart></MyCart>
                    </PrivateRoute>,
-            loader:()=>fetch('http://localhost:5001/carts')
+            loader:()=>fetch('https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/carts')
         },
         {
             path:"/login",
@@ -48,21 +48,21 @@ const Router = createBrowserRouter([
         {
             path:"/products/:brand",
             element:<BrandsProducts></BrandsProducts>,
-            loader:()=>fetch('http://localhost:5001/products')
+            loader:()=>fetch('https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/products')
         },
         {
             path:"/product/:id",
             element:<PrivateRoute>
                      <ProductDetail></ProductDetail>
                    </PrivateRoute>,
-            loader:()=>fetch(`http://localhost:5001/products`)
+            loader:()=>fetch(`https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/products`)
         },
         {
             path:'/update/:id',
             element:<PrivateRoute>
                         <Update></Update>
                     </PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5001/products/${params.id}`)
+            loader:({params})=>fetch(`https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/products/${params.id}`)
         }
       ]
     }

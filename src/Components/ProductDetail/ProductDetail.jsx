@@ -18,7 +18,7 @@ const ProductDetail = () => {
     const insertData={name, brand, type, price, description, rating, photo}
 
 const handleAddCarts=()=>{
-    fetch('http://localhost:5001/carts',{
+    fetch('https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/carts',{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
