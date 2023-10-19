@@ -12,7 +12,10 @@ const ProductDetail = () => {
     const specificItem=allData.find(data=>data._id===id.id)
     // console.log(specificItem)
 
-    const { name, brand, type, price, description, photo}=specificItem
+    const { name, brand, type, price,rating, description, photo}=specificItem
+    // console.log( specificItem)
+
+    const insertData={name, brand, type, price, description, rating, photo}
 
 const handleAddCarts=()=>{
     fetch('http://localhost:5001/carts',{
@@ -20,7 +23,7 @@ const handleAddCarts=()=>{
         headers:{
             "Content-Type":"application/json"
         },
-        body:JSON.stringify(specificItem)
+        body:JSON.stringify(insertData)
     })
     .then(res=>res.json())
 

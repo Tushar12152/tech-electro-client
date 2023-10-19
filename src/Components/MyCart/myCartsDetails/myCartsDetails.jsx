@@ -1,8 +1,58 @@
 
 import PropTypes from 'prop-types';
+import { AiFillDelete } from 'react-icons/ai';
+import swal from 'sweetalert';
 
-const MyCartsDetails = ({cart}) => {
-    const{photo,name,type,price,brand}=cart;
+
+const MyCartsDetails = ({cart,myCarts,setMyCarts}) => {
+    const{_id,photo,name,type,price,brand}=cart;
+
+
+    const handleDelete=id=>{
+
+         console.log(id)
+
+         swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Poof! Your imaginary file has been deleted!", {
+                icon: "success",});
+
+                 fetch(`http://localhost:5001/carts/${id}`,{
+                    method:"DELETE",
+                   })
+                   .then(res=>res.json())
+                   .then(data=>{
+                      if(data.deletedCount>0){
+
+                          swal("Poof! Your imaginary product has been deleted!", {
+                              icon: "success",}); 
+                              const remaining = myCarts.filter(cart => cart._id !== id);
+                              setMyCarts(remaining);
+                            
+                            }
+                   })
+
+
+
+            } else {
+              swal("Your imaginary product is safe!");
+            }
+          });
+
+
+    }
+
+
+
+
+
 
 
     return (
@@ -16,7 +66,11 @@ const MyCartsDetails = ({cart}) => {
     <p className='text-gray-600'> price: ${price}</p>
     
     
+
+    <button onClick={()=>handleDelete(_id)} className='btn text-2xl w-12 ml-36 bg-gradient-to-r from-green-500 to-cyan-500'> <AiFillDelete></AiFillDelete> </button>
+  
   </div>
+
               </div>
         </div>
     );
@@ -24,6 +78,8 @@ const MyCartsDetails = ({cart}) => {
 
 MyCartsDetails.propTypes = {
     cart:PropTypes.object.isRequired,
+    myCarts:PropTypes.array,
+    setMyCarts:PropTypes.array,
 };
 
 export default MyCartsDetails;
