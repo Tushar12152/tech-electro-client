@@ -7,7 +7,7 @@ const AddProduct = () => {
         const form=e.target;
         const name=form.name.value;
         const brand=form.brand.value;
-        const type=form.brand.value;
+        const type=form.type.value;
         const price=form.price.value;
         const description=form.description.value;
         const rating=form.rating.value;
@@ -28,7 +28,7 @@ const AddProduct = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             if(data.insertedId){
                 swal('success',"Your product is added",'success')
             }

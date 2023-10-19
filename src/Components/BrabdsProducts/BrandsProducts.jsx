@@ -7,7 +7,7 @@ const BrandsProducts = () => {
       const {brand}=singleBrand;
 
       const selectedBrands=allBrands.filter(item=>item.brand.toLowerCase()===brand.toLowerCase())
-      console.log(selectedBrands)
+      // console.log(selectedBrands)
 
 
 

@@ -3,10 +3,12 @@ import { BiDetail } from 'react-icons/bi';
 import { RxUpdate } from 'react-icons/rx';
 import PropTypes from 'prop-types';
 import Rating from 'react-rating';
+import { Link } from 'react-router-dom';
 
 const SingleBrandProducts =( {product} )=> {
     // console.log(product)
-    const{photo,name,rating,type,price,brand}=product;
+    const{_id,photo,name,rating,type,price,brand}=product;
+    // console.log(type)
     return (
         <div>
                <div className="card w-96 bg-base-100 shadow-2xl">
@@ -24,11 +26,13 @@ const SingleBrandProducts =( {product} )=> {
 
     />
     <div className="flex justify-between">
-      <button className="btn bg-gradient-to-r from-green-500 to-cyan-500"><BiDetail></BiDetail></button>
+     <Link to={`/product/${_id}`}>
+     <button className="btn bg-gradient-to-r from-green-500 to-cyan-500"><BiDetail></BiDetail></button>
+     </Link>
       <button className="btn bg-gradient-to-r from-green-500 to-cyan-500"><RxUpdate></RxUpdate></button>
     </div>
   </div>
-</div>
+              </div>
         </div>
     );
 };
