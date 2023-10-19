@@ -29,7 +29,9 @@ const SingleBrandProducts =( {product} )=> {
      <Link to={`/product/${_id}`}>
      <button className="btn bg-gradient-to-r from-green-500 to-cyan-500"><BiDetail></BiDetail></button>
      </Link>
-      <button className="btn bg-gradient-to-r from-green-500 to-cyan-500"><RxUpdate></RxUpdate></button>
+     <Link to={`/update/${_id}`}>
+     <button className="btn bg-gradient-to-r from-green-500 to-cyan-500"><RxUpdate></RxUpdate></button>
+     </Link>
     </div>
   </div>
               </div>
