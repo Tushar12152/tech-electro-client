@@ -1,3 +1,4 @@
+
 import swal from "sweetalert";
 
 const AddProduct = () => {
@@ -38,6 +39,7 @@ const AddProduct = () => {
 
     return (
         <div className="p-24 bg-red-50 ">
+            
         <h2 className="text-4xl font-bold text-center pb-16 ">Add a Product</h2>
         <form onSubmit={handleAdd}>
            

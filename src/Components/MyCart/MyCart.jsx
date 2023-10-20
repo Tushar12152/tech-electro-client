@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import MyCartsDetails from "./myCartsDetails/myCartsDetails";
 import { useState } from "react";
 
+
 const MyCart = () => {
     const Carts=useLoaderData()
 
@@ -9,6 +10,8 @@ const MyCart = () => {
     console.log(Carts)
     return (
        <div>
+
+
           {
         myCarts.length>0?
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 w-[70%] mx-auto mt-10">
