@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import swal from "sweetalert";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const ProductDetail = () => {
     const id=useParams()
     // console.log(id)
-
+    const {user,}=useContext(AuthContext)
+    const usersmail=user?.email;
     const allData=useLoaderData()
 
     // console.log(allData)
@@ -15,7 +18,7 @@ const ProductDetail = () => {
     const { name, brand, type, price,rating, description, photo}=specificItem
     // console.log( specificItem)
 
-    const insertData={name, brand, type, price, description, rating, photo}
+    const insertData={name, brand, type, price, description, rating, photo,usersmail}
 
 const handleAddCarts=()=>{
     fetch('https://tech-electro-server-1cuea8g4t-tushars-projects-8df8c1f7.vercel.app/carts',{
